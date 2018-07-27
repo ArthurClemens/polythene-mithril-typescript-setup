@@ -5,7 +5,7 @@ import { MonoTypeOperatorFunction } from '../types';
  * <span class="informal">Takes the first `count` values from the source, then
  * completes.</span>
  *
- * <img src="./img/take.png" width="100%">
+ * ![](take.png)
  *
  * `take` returns an Observable that emits only the first `count` values emitted
  * by the source Observable. If the source emits fewer than `count` values then

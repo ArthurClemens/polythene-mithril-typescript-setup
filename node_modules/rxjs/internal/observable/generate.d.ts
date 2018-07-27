@@ -35,22 +35,22 @@ export interface GenerateOptions<T, S> extends GenerateBaseOptions<S> {
  * producing the sequence's elements, using the specified scheduler
  * to send out observer messages.
  *
- * <img src="./img/generate.png" width="100%">
+ * ![](generate.png)
  *
  * @example <caption>Produces sequence of 0, 1, 2, ... 9, then completes.</caption>
  * const res = generate(0, x => x < 10, x => x + 1, x => x);
  *
  * @example <caption>Using asap scheduler, produces sequence of 2, 3, 5, then completes.</caption>
- * const res = generate(1, x => x < 5, x =>  * 2, x => x + 1, Rx.Scheduler.asap);
+ * const res = generate(1, x => x < 5, x =>  * 2, x => x + 1, asap);
  *
  * @see {@link from}
- * @see {@link create}
+ * @see {@link Observable}
  *
  * @param {S} initialState Initial state.
  * @param {function (state: S): boolean} condition Condition to terminate generation (upon returning false).
  * @param {function (state: S): S} iterate Iteration step function.
  * @param {function (state: S): T} resultSelector Selector function for results produced in the sequence.
- * @param {Scheduler} [scheduler] A {@link SchedulerLike} on which to run the generator loop. If not provided, defaults to emit immediately.
+ * @param {SchedulerLike} [scheduler] A {@link SchedulerLike} on which to run the generator loop. If not provided, defaults to emit immediately.
  * @returns {Observable<T>} The generated sequence.
  */
 export declare function generate<T, S>(initialState: S, condition: ConditionFunc<S>, iterate: IterateFunc<S>, resultSelector: ResultFunc<S, T>, scheduler?: SchedulerLike): Observable<T>;
@@ -60,7 +60,7 @@ export declare function generate<T, S>(initialState: S, condition: ConditionFunc
  * to send out observer messages.
  * The overload uses state as an emitted value.
  *
- * <img src="./img/generate.png" width="100%">
+ * ![](generate.png)
  *
  * @example <caption>Produces sequence of 0, 1, 2, ... 9, then completes.</caption>
  * const res = generate(0, x => x < 10, x => x + 1);
@@ -69,12 +69,12 @@ export declare function generate<T, S>(initialState: S, condition: ConditionFunc
  * const res = generate(1, x => x < 5, x => x  * 2, Rx.Scheduler.asap);
  *
  * @see {@link from}
- * @see {@link create}
+ * @see {@link Observable}
  *
  * @param {S} initialState Initial state.
  * @param {function (state: S): boolean} condition Condition to terminate generation (upon returning false).
  * @param {function (state: S): S} iterate Iteration step function.
- * @param {Scheduler} [scheduler] A {@link SchedulerLike} on which to run the generator loop. If not provided, defaults to emit immediately.
+ * @param {SchedulerLike} [scheduler] A {@link SchedulerLike} on which to run the generator loop. If not provided, defaults to emit immediately.
  * @returns {Observable<S>} The generated sequence.
  */
 export declare function generate<S>(initialState: S, condition: ConditionFunc<S>, iterate: IterateFunc<S>, scheduler?: SchedulerLike): Observable<S>;
@@ -85,7 +85,7 @@ export declare function generate<S>(initialState: S, condition: ConditionFunc<S>
  * The overload accepts options object that might contain initial state, iterate,
  * condition and scheduler.
  *
- * <img src="./img/generate.png" width="100%">
+ * ![](generate.png)
  *
  * @example <caption>Produces sequence of 0, 1, 2, ... 9, then completes.</caption>
  * const res = generate({
@@ -95,7 +95,7 @@ export declare function generate<S>(initialState: S, condition: ConditionFunc<S>
  * });
  *
  * @see {@link from}
- * @see {@link create}
+ * @see {@link Observable}
  *
  * @param {GenerateBaseOptions<S>} options Object that must contain initialState, iterate and might contain condition and scheduler.
  * @returns {Observable<S>} The generated sequence.
@@ -108,7 +108,7 @@ export declare function generate<S>(options: GenerateBaseOptions<S>): Observable
  * The overload accepts options object that might contain initial state, iterate,
  * condition, result selector and scheduler.
  *
- * <img src="./img/generate.png" width="100%">
+ * ![](generate.png)
  *
  * @example <caption>Produces sequence of 0, 1, 2, ... 9, then completes.</caption>
  * const res = generate({
@@ -119,7 +119,7 @@ export declare function generate<S>(options: GenerateBaseOptions<S>): Observable
  * });
  *
  * @see {@link from}
- * @see {@link create}
+ * @see {@link Observable}
  *
  * @param {GenerateOptions<T, S>} options Object that must contain initialState, iterate, resultSelector and might contain condition and scheduler.
  * @returns {Observable<T>} The generated sequence.

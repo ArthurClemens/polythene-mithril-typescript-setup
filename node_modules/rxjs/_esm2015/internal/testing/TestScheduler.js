@@ -103,15 +103,13 @@ export class TestScheduler extends VirtualTimeScheduler {
             hotObservables.shift().setup();
         }
         super.flush();
-        const { flushTests } = this;
-        const flushTestsCopy = flushTests.slice();
-        for (let i = 0, l = flushTests.length; i < l; i++) {
-            const test = flushTestsCopy[i];
+        this.flushTests = this.flushTests.filter(test => {
             if (test.ready) {
-                flushTests.splice(i, 1);
                 this.assertDeepEqual(test.actual, test.expected);
+                return false;
             }
-        }
+            return true;
+        });
     }
     static parseMarblesAsSubscriptions(marbles, runMode = false) {
         if (typeof marbles !== 'string') {
