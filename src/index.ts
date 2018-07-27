@@ -1,5 +1,5 @@
 import * as m from "mithril";
-const { Dialog, RaisedButton } = require("polythene-mithril");
+const { Dialog, Button } = require("polythene-mithril");
 
 import "polythene-css/dist/polythene.css";            // Component CSS
 import "polythene-css/dist/polythene-typography.css"; // Default Material Design styles including Roboto font
@@ -7,7 +7,8 @@ import "polythene-css/dist/polythene-typography.css"; // Default Material Design
 const App = {
   view: () =>
     m("div", [
-      m(RaisedButton, {
+      m(Button, {
+        raised: true,
         label: "Open dialog",
         events: {
           onclick: () => {
