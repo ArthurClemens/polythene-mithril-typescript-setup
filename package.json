@@ -1,6 +1,6 @@
 {
   "name": "polythene-mithril-typescript-setup",
-  "version": "1.0.0",
+  "version": "1.3.2",
   "description": "Polythene for Mithril with TypeScript setup example",
   "license": "MIT",
   "scripts": {
