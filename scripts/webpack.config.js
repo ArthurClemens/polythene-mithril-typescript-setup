@@ -1,6 +1,6 @@
 /* global __dirname */
 const path = require("path");
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
 
@@ -25,11 +25,18 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: ExtractTextPlugin.extract({
-          fallback: "style-loader",
-          use: "css-loader"
-        })
-      },
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: "css-loader",
+            options: {
+              modules: true,
+              sourceMap: true,
+              localIdentName: "[local]"
+            }
+          },
+        ]
+      }
     ]
   },
 
@@ -38,7 +45,9 @@ module.exports = {
   },
 
   plugins: [
-    new ExtractTextPlugin("css/app.css"),
+    new MiniCssExtractPlugin({
+      filename: "css/app.css"
+    }),
   ],
 
   devtool: "source-map"
