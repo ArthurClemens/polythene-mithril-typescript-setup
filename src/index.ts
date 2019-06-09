@@ -1,5 +1,5 @@
-import * as m from "mithril";
-const { Dialog, Button } = require("polythene-mithril");
+import m from "mithril";
+import { Dialog, Button } from "polythene-mithril";
 
 import "polythene-css/dist/polythene.css";            // Component CSS
 import "polythene-css/dist/polythene-typography.css"; // Default Material Design styles including Roboto font
@@ -25,4 +25,7 @@ const App = {
     ])
 };
 
-m.mount(document.body, App);
+const rootElement: HTMLElement | null = document.getElementById("root");
+if (rootElement) {
+  m.mount(rootElement, App);
+}
