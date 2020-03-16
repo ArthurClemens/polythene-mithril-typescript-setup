@@ -1,7 +1,5 @@
 # Polythene for Mithril with TypeScript setup example
 
-Compatible with Mithril 1.x
-
 Minimal setup example how to create a [Polythene](https://github.com/ArthurClemens/polythene) app for Mithril.
 
 
