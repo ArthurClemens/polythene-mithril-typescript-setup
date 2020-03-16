@@ -1,27 +1,25 @@
 /* global __dirname */
-const path = require("path");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const baseDir = process.cwd();
 
 module.exports = {
-
-  context: path.resolve(__dirname, "../src"), 
+  context: path.resolve(__dirname, '../src'),
 
   entry: {
-    index: "../src/index.ts",
+    index: '../src/index.ts',
   },
 
   output: {
-    path: path.resolve(__dirname, "../dist"),
-    filename: "js/[name].js"
+    path: path.resolve(__dirname, '../dist'),
+    filename: 'js/[name].js',
   },
 
   module: {
     rules: [
       {
         test: /\.ts$/,
-        use: [
-          { loader: "ts-loader" }
-        ]
+        use: [{ loader: 'ts-loader' }],
       },
       {
         test: /\.css$/,
@@ -31,25 +29,32 @@ module.exports = {
             options: {
               modules: true,
               sourceMap: true,
-              localIdentName: "[local]"
-            }
+              localIdentName: '[local]',
+            },
           },
-          "css-loader",
-        ]
-      }
-    ]
+          'css-loader',
+        ],
+      },
+    ],
   },
 
   resolve: {
-    extensions: [ ".mjs", ".js", ".json", ".ts" ]
+    // Make sure that libs are included only once
+    alias: {
+      'mithril/stream': path.resolve(
+        baseDir,
+        'node_modules/mithril/stream/stream.js',
+      ),
+      mithril: path.resolve(baseDir, 'node_modules/mithril/mithril.js'),
+    },
+    extensions: ['.mjs', '.js', '.jsx', '.ts', '.tsx'],
   },
 
   plugins: [
     new MiniCssExtractPlugin({
-      filename: "css/app.css"
+      filename: 'css/app.css',
     }),
   ],
 
-  devtool: "source-map"
-
+  devtool: 'source-map',
 };
