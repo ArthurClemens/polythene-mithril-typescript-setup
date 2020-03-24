@@ -1,20 +1,22 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "checkJs": true,
+    "emitDecoratorMetadata": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "jsx": "react",
     "module": "commonjs",
     "moduleResolution": "node",
-    "sourceMap": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "removeComments": false,
     "noImplicitAny": false,
-    "strictNullChecks": true,
-    "checkJs": true,
-    "allowJs": true,
-    "jsx": "react",
     "outDir": "dist/js",
+    "removeComments": false,
+    "sourceMap": true,
     "strict": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "strictPropertyInitialization": true,
+    "target": "es5"
   }
 }
